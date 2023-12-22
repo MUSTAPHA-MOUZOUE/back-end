@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const morgan = require("morgan");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              const morgan = require("morgan");
 
 dotenv.config({ path: "config.env" });
 const dbConnection = require("./config/db");
