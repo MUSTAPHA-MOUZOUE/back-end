@@ -11,12 +11,6 @@ dbConnection();
 
 // express app
 const app = express();
-<<<<<<< HEAD
-const port = 3001;qdd
-const mongoose = require("mongoose");
-app.use(express.urlencoded({ extended: true }));
-=======
->>>>>>> 707d9f3bc5d372a14b70d62d2e06bade639f42cd
 
 // Middlewares
 app.use(express.json());
