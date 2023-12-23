@@ -25,8 +25,8 @@ app.use(express.json());
 // Mount Routes
 app.use('/api/v1/categories', categoryRoute);
 app.use('/api/add/users', UserRoute); // Adjust the path if needed
-app.use('/api/users', UserRoute); // Adjust the path if needed
-//app.use('/api/user/:id', UserRoute);
+app.use('/users', UserRoute); // Adjust the path if needed
+//app.use('/api/user/', UserRoute);
 
 //const PORT = process.env.PORT || 8000;
 const server = app.listen(PORT, () => {
