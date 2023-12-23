@@ -1,18 +1,34 @@
 const express = require("express");
-const app = express();
-const port = 3001;
-const mongoose = require("mongoose");
-app.use(express.urlencoded({ extended: true }));
-
-mongoose
-  .connect(`mongodb://localhost:37017`)
+const dotenv = require("dotenv");
+dotenv.config({ path: 'config.env' });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+dotenv.config({ path: "config.env" });
+//const dbConnection = require("./config/db");
+const categoryRoute = require("./routes/CategoryRoute");
+const UserRoute=require("./routes/UserRoute")
+// Connect with db
+//dbConnection();
+const mongoose = require('mongoose');
+const PORT=8000
+mongoose.connect('mongodb+srv://ecommerce:ecommerce@cluster0.usyigca.mongodb.net/?retryWrites=true&w=majority')
   .then(() => {
-    app.listen(port, () => {
-      console.log(`http://localhost:${port}/`);
-    });
+    console.log('Connected to MongoDB');
   })
-
-  .catch((err) => {
-    console.log(err);
+  .catch(error => {
+    console.error('Error connecting to MongoDB:', error.message);
   });
-app.listen(port)
+
+// express app
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Mount Routes
+app.use('/api/v1/categories', categoryRoute);
+app.use('/api/add/users', UserRoute); // Adjust the path if needed
+app.use('/api/users', UserRoute); // Adjust the path if needed
+//app.use('/api/user/:id', UserRoute);
+
+//const PORT = process.env.PORT || 8000;
+const server = app.listen(PORT, () => {
+  console.log(`App running running on port ${PORT}`);
+})
