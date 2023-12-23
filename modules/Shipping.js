@@ -15,5 +15,5 @@ const ShippingSchema=new Schema({
     required: true,
   },
 })
-const Shipping=mongoose.model("Transiction",ShippingSchema)
+const Shipping=mongoose.model("Shipping",ShippingSchema)
 module.exports=Shipping
