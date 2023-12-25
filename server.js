@@ -8,6 +8,9 @@ const categoryRoute = require("./routers/categoryRoute");
 const orderRoute = require("./routers/orderRoute");
 const offerRoute = require("./routers/offerRoute");
 const notificationRoute = require("./routers/notificationRoute");
+const UserRoute = require("./routers/UserRoute");
+const TransactionRoute = require("./routers/TransactionRoute");
+const ShippingRoute = require("./routers/ShippingRoute");
 
 // Connect with db
 dbConnection();
