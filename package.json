@@ -1,11 +1,11 @@
 {
   "name": "projet",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,15 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
     "nodemon": "^3.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MUSTAPHA-MOUZOUE/back-end.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MUSTAPHA-MOUZOUE/back-end/issues"
+  },
+  "homepage": "https://github.com/MUSTAPHA-MOUZOUE/back-end#readme",
+  "description": ""
 }
