@@ -1,68 +1,76 @@
-const mongoose=require("mongoose");
-const Schema=mongoose.Schema;
-const PaymentMethods = ['PayPal', 'Bank Transfer'];
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const PaymentMethods = ["PayPal", "Bank Transfer"];
+
 const shippingAddressSchema = new mongoose.Schema({
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    postalCode: { type: String, required: true },
-    country: { type: String, required: true },
-  });
-  
-  const billingAddressSchema = new mongoose.Schema({
-    street: { type: String, required: true },
-    city: { type: String, required: true },
-    state: { type: String, required: true },
-    postalCode: { type: String, required: true },
-    country: { type: String, required: true },
-  });
-const OrderSchema=new Schema({
-    ProductId:{
-        type: Schema.Types.ObjectId,
-        ref: 'Product',
-        required: true
+  street: { type: String, required: true },
+  city: { type: String, required: true },
+  state: { type: String, required: true },
+  postalCode: { type: String, required: true },
+  country: { type: String, required: true },
+});
+
+const billingAddressSchema = new mongoose.Schema({
+  street: { type: String, required: true },
+  city: { type: String, required: true },
+  state: { type: String, required: true },
+  postalCode: { type: String, required: true },
+  country: { type: String, required: true },
+});
+
+const OrderSchema = new Schema(
+  {
+    productId: {
+      type: Schema.Types.ObjectId,
+      ref: "Product",
+      required: true,
     },
-    date:{
-        type:date,
-        required:true
+    date: {
+      type: Date,
+      required: true,
     },
-    totalPrice:{
-        type:number,
-        required:true
+    totalPrice: {
+      type: Number,
+      required: true,
     },
-    paymentmethod: {
-        enum: PaymentMethods,
-        required: true
+    paymentMethod: {
+      type: String,
+      enum: PaymentMethods,
+      required: true,
     },
-    customer:{
-        type:String
+    customer: {
+      type: String,
     },
     discount: {
-        type: Number,
+      type: Number,
     },
     shippingAddress: {
-         type: shippingAddressSchema,
-          required: true 
+      type: shippingAddressSchema,
+      required: true,
     },
     trackingNumber: {
-         type: String
-     },
-    billingAddress: { 
-        type: billingAddressSchema,
-        required: true
+      type: String,
     },
-    orderNotes:{
-        type: String
+    billingAddress: {
+      type: billingAddressSchema,
+      required: true,
     },
-    tax:{
-        type:Number
+    orderNotes: {
+      type: String,
+    },
+    tax: {
+      type: Number,
     },
     userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
+  },
+  { timestamps: true }
+);
 
-},{ timestamp: true })
-const Order=mongoose.model("Order",OrderSchema)
-module.exports=Order
+const Order = mongoose.model("Order", OrderSchema);
+
+module.exports = Order;

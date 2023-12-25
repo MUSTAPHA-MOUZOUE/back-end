@@ -5,6 +5,9 @@ dotenv.config({ path: 'config.env' });
 dotenv.config({ path: "config.env" });
 const dbConnection = require("./config/db");
 const categoryRoute = require("./routers/categoryRoute");
+const orderRoute = require("./routers/orderRoute");
+const offerRoute = require("./routers/offerRoute");
+const notificationRoute = require("./routers/notificationRoute");
 
 // Connect with db
 dbConnection();
@@ -19,6 +22,9 @@ app.use(express.json());
 
 // Mount Routes
 app.use('/api/v1/categories', categoryRoute);
+app.use("/api/v1/order", orderRoute);
+app.use("/api/v1/offers", offerRoute);
+app.use("/api/v1/notification", notificationRoute);
 
 const PORT = process.env.PORT || 8000;
 

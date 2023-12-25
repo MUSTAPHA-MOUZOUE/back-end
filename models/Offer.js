@@ -1,30 +1,40 @@
-const mongoose=require("mongoose");
-const Schema=mongoose.Schema;
-const OfferSchema=new Schema({
-    code:{
-        type:String
-    },
-    description:{
-        type:String
-    },
-    discountType:{
-        type:String
-    },
-    discountValue:{
-        type:Number
-    },
-    validFrom:{
-        type:Date
-    },
-    validUntil:{
-        type:Date
-    },
-    usageLimit:{
-        type:Number
-    }
-    // applicableProducts:{
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-    // },
-})
-const Offer=mongoose.model("Offer",OfferSchema)
-module.exports=Offer
+const OfferSchema = new Schema({
+  code: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  discountPercentage: {
+    type: Number,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  endDate: {
+    type: Date,
+    required: true,
+  },
+  //   products: [
+  //     {
+  //       type: Schema.Types.ObjectId,
+  //       ref: "Product",
+  //     },
+  //   ],
+  status: {
+    type: String,
+    enum: ["active", "inactive"],
+    default: "active",
+  },
+});
+
+const Offer = mongoose.model("Offer", OfferSchema);
+
+module.exports = Offer;
