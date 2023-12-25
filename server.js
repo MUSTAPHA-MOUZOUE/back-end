@@ -16,6 +16,7 @@ app.use(express.json());
 
 //  Routes users
 app.use('/api/v1/users', UserRoute);
+
 // Routes Transaction
 app.use('/api/v1/Transaction', TransactionRoute);
 //Routes Shipping
