@@ -28,7 +28,6 @@ app.use('/api/v1/categories', categoryRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/offers", offerRoute);
 app.use("/api/v1/notification", notificationRoute);
-// Routes User
 app.use("/api/v1/user",UserRoute)
 // Routes Shipping
 app.use("/api/v1/shipping",ShippingRoute )
