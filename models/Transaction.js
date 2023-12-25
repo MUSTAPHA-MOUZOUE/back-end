@@ -4,7 +4,7 @@ const TransictionSchema=new Schema({
     orderId: {
         type: Schema.Types.ObjectId,
         ref: 'Order',
-        required: true
+        required: false
     },
     userId: {
         type: Schema.Types.ObjectId,
