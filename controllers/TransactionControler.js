@@ -1,4 +1,4 @@
-const TransactionModele=require("../modules/Transaction")
+const TransactionModele=require("../models/Transaction")
 exports.craeteTransaction=async(req,res)=>{
     try {
         const Transaction=await TransactionModele.create(req.body)

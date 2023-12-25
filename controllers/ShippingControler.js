@@ -1,4 +1,4 @@
-const ShippingModel=require('../modules/Shipping')
+const ShippingModel=require('../models/Shipping')
 
 
 exports.createshipping=async(req,res)=>{

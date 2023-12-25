@@ -1,5 +1,5 @@
 const express = require('express');
-const { createshipping ,getshipping,updateshipping,deleteshipping} = require('../controller/ShippingControler'); // Corrected function name
+const { createshipping ,getshipping,updateshipping,deleteshipping} = require('../controllers/ShippingControler'); // Corrected function name
 
 const router = express.Router();
 

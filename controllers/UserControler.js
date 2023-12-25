@@ -1,4 +1,4 @@
-const UserModel = require('../modules/User');
+const UserModel = require('../models/User');
 exports.createUser= async(req,res)=>{
    try {
        const newUser=await UserModel.create(req.body)

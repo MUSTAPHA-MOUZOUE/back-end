@@ -1,5 +1,5 @@
 const express=require("express")
-const {craeteTransaction,getTransaction,getTransactionid,updateTransaction,deleteTransaction} =require('../controller/TransactionControler')
+const {craeteTransaction,getTransaction,getTransactionid,updateTransaction,deleteTransaction} =require('../controllers/TransactionControler')
 const router=express.Router()
 
 router.post('/',craeteTransaction)
