@@ -11,6 +11,7 @@ const notificationRoute = require("./routers/notificationRoute");
 const UserRoute = require("./routers/UserRoute");
 const TransactionRoute = require("./routers/TransactionRoute");
 const ShippingRoute = require("./routers/ShippingRoute");
+const authRoutes = require("./routers/authRoute"); 
 
 // Connect with db
 dbConnection();
@@ -33,6 +34,7 @@ app.use("/api/v1/user",UserRoute)
 app.use("/api/v1/shipping",ShippingRoute )
 //Routes Transaction
 app.use("/api/v1/transa",TransactionRoute)
+app.use("/api/v1/auth", authRoutes);
 
 const PORT = process.env.PORT || 8000;
  app.listen(PORT, () => {
