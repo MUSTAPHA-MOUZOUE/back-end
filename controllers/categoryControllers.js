@@ -1,4 +1,4 @@
-const CategoryModel = require('../models/Category');
+const CategoryModel = require("../models/Category");
 
 exports.CreateCategories = (req, res) => {
   const { name, description, parentCategory, isActive } = req.body;

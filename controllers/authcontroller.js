@@ -25,6 +25,16 @@ exports.register = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+const jwt = require("jsonwebtoken");
+
+exports.logout = async (req, res) => {
+  try {
+   
+    res.json({ message: "Logout successful" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 exports.login = async (req, res) => {
   try {
@@ -43,6 +53,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, "hola", {
       expiresIn: "1h",
     });
+    
 
     res.json({ token });
   } catch (error) {
