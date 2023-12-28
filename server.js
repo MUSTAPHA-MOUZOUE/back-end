@@ -11,6 +11,7 @@ const notificationRoute = require("./routers/notificationRoute");
 const UserRoute = require("./routers/UserRoute");
 const TransactionRoute = require("./routers/TransactionRoute");
 const ShippingRoute = require("./routers/ShippingRoute");
+const productRoute = require("./routers/productRoute");
 
 // Connect with db
 dbConnection();
@@ -22,8 +23,8 @@ const mongoose = require("mongoose");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 // Mount Routes
+app.use('/api/v1/products', productRoute);
 app.use('/api/v1/categories', categoryRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/offers", offerRoute);
