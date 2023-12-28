@@ -41,15 +41,13 @@ const UserSchema = new Schema({
         type:String,
         required:false
     },
-    role: {
-        type: [
-          {
+  role: {
+
             type: String,
-            enum: ["user", "admin"],
-            //default: ["user"]
+            enum: ["user", "admin","moderator"],
+            default: ["user"]
           }
-         ]
-       }
+        
 },{ timestamp: true });
  
  
