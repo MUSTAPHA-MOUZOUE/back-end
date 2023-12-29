@@ -1,19 +1,20 @@
 const NotifModel = require("../models/Notification");
 const asyncHandler = require("express-async-handler");
+const factory = require("./HandlersFactory");
 
-// Create a notification
-exports.createNotification = asyncHandler(async (req, res) => {
-  const { userId, message } = req.body;
+// // Create a notification
+// exports.createNotification = asyncHandler(async (req, res) => {
+//   const { userId, message } = req.body;
 
-  const newNotification = new NotifModel({
-    userId,
-    message,
-  });
+//   const newNotification = new NotifModel({
+//     userId,
+//     message,
+//   });
 
-  await newNotification.save();
+//   await newNotification.save();
 
-  res.status(201).json({ data: newNotification });
-});
+//   res.status(201).json({ data: newNotification });
+// });
 
 // Mark a notification as read
 exports.markNotificationAsRead = asyncHandler(async (req, res) => {
@@ -40,7 +41,6 @@ exports.getUnreadNotifications = asyncHandler(async (req, res) => {
   res.json({ data: unreadNotifications });
 });
 
-// Get all notifications for a user
 exports.getAllNotifications = asyncHandler(async (req, res) => {
   const { userId } = req.params;
 
@@ -48,3 +48,10 @@ exports.getAllNotifications = asyncHandler(async (req, res) => {
 
   res.json({ data: allNotifications });
 });
+
+
+
+exports.createNotification = factory.createOne(NotifModel);
+exports.getAllNotifications = factory.getAll(NotifModel);
+
+

@@ -1,35 +1,37 @@
 const OfferModel = require("../models/Offer");
 const asyncHandler = require("express-async-handler");
+const factory = require("./HandlersFactory");
 
-exports.CreateOffer = asyncHandler(async (req, res) => {
-  const {
-    code,
-    description,
-    discountPercentage,
-    startDate,
-    endDate,
-    //  products,
-    status,
-  } = req.body;
 
-  const offer = await OfferModel.create({
-    code,
-    description,
-    discountPercentage,
-    startDate,
-    endDate,
-    //   products,
-    status,
-  });
+// exports.CreateOffer = asyncHandler(async (req, res) => {
+//   const {
+//     code,
+//     description,
+//     discountPercentage,
+//     startDate,
+//     endDate,
+//     //  products,
+//     status,
+//   } = req.body;
 
-  res.status(201).json({ data: offer });
-});
+//   const offer = await OfferModel.create({
+//     code,
+//     description,
+//     discountPercentage,
+//     startDate,
+//     endDate,
+//     //   products,
+//     status,
+//   });
+
+//   res.status(201).json({ data: offer });
+// });
 
 // Function to get all offers
-exports.getOffers = asyncHandler(async (req, res) => {
-  const offers = await OfferModel.find();
-  res.status(200).json({ data: offers });
-});
+// exports.getOffers = asyncHandler(async (req, res) => {
+//   const offers = await OfferModel.find();
+//   res.status(200).json({ data: offers });
+// });
 
 // Function to get active offers
 exports.getActiveOffers = asyncHandler(async (req, res) => {
@@ -101,7 +103,7 @@ exports.updateOffer = asyncHandler(async (req, res) => {
 exports.deleteOffer = asyncHandler(async (req, res) => {
   const code = req.params.code;
 
-  const offer = await Offer.findOne({ code });
+  const offer = await OfferModel.findOne({ code });
 
   if (!offer) {
     return res.status(404).json({ error: "Offer not found" });
@@ -112,3 +114,9 @@ exports.deleteOffer = asyncHandler(async (req, res) => {
 
   res.status(200).json({ message: "Offer deleted successfully" });
 });
+
+exports.CreateOffer = factory.createOne(OfferModel);
+
+exports.getOffers = factory.getAll(OfferModel);
+
+

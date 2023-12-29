@@ -11,7 +11,8 @@ const notificationRoute = require("./routers/notificationRoute");
 const UserRoute = require("./routers/UserRoute");
 const TransactionRoute = require("./routers/TransactionRoute");
 const ShippingRoute = require("./routers/ShippingRoute");
-
+const productRoute = require("./routers/productRoute");
+const authRoutes = require("./routers/authRoute");
 // Connect with db
 dbConnection();
 
