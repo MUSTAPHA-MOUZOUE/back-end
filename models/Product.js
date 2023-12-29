@@ -19,7 +19,7 @@ const ProductSchema=new Schema({
     },
     images:[ {
         type: String,
-        required: true
+        required: false
     }],
     variants:[{
         size:Number,
@@ -46,7 +46,7 @@ const ProductSchema=new Schema({
     averageRating:{
         type:Number
     },
-    reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}],
+    // reviews: [{type: mongoose.Schema.Types.ObjectId, ref: 'Review'}],
     tags: [{
         name: String,
         
@@ -63,16 +63,16 @@ const ProductSchema=new Schema({
     metaKeywords:{
         type:String
     },
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    CategoryId:{
-        type: Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
-    }
+    // userId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User',
+    //     required: true
+    // },
+    // CategoryId:{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Category',
+    //     required: true
+    // }
     
     
 },{ timestamp: true })

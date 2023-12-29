@@ -1,4 +1,5 @@
-const CategoryModel = require("../models/Category");
+const CategoryModel = require('../models/Category');
+const factory =require("./HandlersFactory")
 
 exports.CreateCategories = (req, res) => {
   const { name, description, parentCategory, isActive } = req.body;
@@ -56,15 +57,18 @@ exports.updateCategory = (req, res) => {
     });
 };
 
-exports.deleteCategory = (req, res) => {
-  CategoryModel.findByIdAndDelete(req.params.id)
-    .then((category) => {
-      if (!category) {
-        return res.status(404).json({ message: "Category not found" });
-      }
-      res.status(204).send();
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-};
+// exports.deleteCategory = (req, res) => {
+//   CategoryModel.findByIdAndDelete(req.params.id)
+//     .then((category) => {
+//       if (!category) {
+//         return res.status(404).json({ message: "Category not found" });
+//       }
+//       res.status(204).send();
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message });
+//     });
+// };
+
+exports.deleteCategory=factory.deleteOne(CategoryModel);
+
