@@ -12,9 +12,9 @@ const {
 } = require("../controllers/offerControllers");
 
 const router = express.Router();
-const { auth,isAdmin,isModerator } = require("../middlewares/Authmiddlewares");
+//const { auth,isAdmin,isModerator } = require("../middlewares/Authmiddlewares");
 
-router.route("/").get(getOffers).post(auth,isAdmin,isModerator,CreateOffer);
+router.route("/").get(getOffers).post(CreateOffer);
 
 router.get("/getActiveOffers", getActiveOffers);
 router.get("/getInActiveOffers", getInActiveOffers);

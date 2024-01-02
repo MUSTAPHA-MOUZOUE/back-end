@@ -3,7 +3,9 @@ const router = express.Router();
 const categoryController = require("../controllers/categoryControllers");
 const { auth,isAdmin,isModerator } = require("../middlewares/Authmiddlewares");
 
-router.post("/",auth,isAdmin,isModerator, categoryController.CreateCategories);
+router.post("/",
+// auth,isAdmin,isModerator,
+ categoryController.CreateCategories);
 
 router.get("/",auth,isAdmin,isModerator, categoryController.getCategories);
 
