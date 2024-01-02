@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const { sendVerificationCodeEmail } = require("../utils/emailService");
 exports.registerUser=async (req,res)=>{
     try{
-    const {fullname,email,password}=req.body
+    const {username,email,password}=req.body
     const hashPassword=await bcrypt.hash(password,10)
     const msg=""
     function getrole() {
@@ -17,7 +17,7 @@ exports.registerUser=async (req,res)=>{
         }
     }
     const registerUser=await User.create({
-        fullname:fullname,
+      username:username,
         email:email,
         password:hashPassword,
         role:getrole()
@@ -58,7 +58,7 @@ exports.signInUser = async (req, res) => {
 
     res.status(200).send({
         id: user._id,
-        fullname: user.fullname,
+        username: user.username,
         email: user.email,
         role:user.role,
         token: token,
