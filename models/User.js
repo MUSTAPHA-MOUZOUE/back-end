@@ -51,9 +51,32 @@ const UserSchema = new Schema(
       enum: ["user", "admin", "moderator"],
       default: ["user"],
     },
-  },
-  { timestamp: true }
-);
+    createdAt:{
+      type:Date
+    },
+    lastLogin:{
+      type:Date
+    },
+    resetPasswordToken:{
+      type:String
+    },
+    wishlist:[{
+      items: [{
+        name: { type: String,  },
+        price: { type: Number,  },
+      }]
+    }],
+    resetPasswordExpire:{
+      type:Date
+    },
+    adresse:{
+        type:String,
+        required:false
+    },
+    verificationCode: { type: String }, 
+
+        
+},{ timestamp: true });
  
  
 // Create a model based on that schema
