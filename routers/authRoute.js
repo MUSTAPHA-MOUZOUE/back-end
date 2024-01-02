@@ -1,11 +1,11 @@
-const { registerUser, signInUser, logout,v } = require("../controllers/authcontrollers");
+const { registerUser, signInUser, logout,verify} = require("../controllers/authcontrollers");
 const { auth} = require("../middlewares/AuthMiddlewares"); // Updated import
 
 const express = require("express");
 const router = express.Router();
 
 // Registration route
-router.post('/sign-up', registerUser);
+router.post("/sign-up", registerUser);
 
 // Signin route
 router.post('/sign-in', signInUser);
@@ -15,4 +15,7 @@ router.post('/verify', verify);
 router.post('/logout', auth, logout);
 
 
+module.exports = router;
+
+// Logout route with authentication middleware
 module.exports = router;

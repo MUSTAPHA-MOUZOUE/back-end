@@ -31,14 +31,14 @@ exports.registerUser=async (req,res)=>{
     }
 }
 exports.signInUser = async (req, res) => {
-    const { email, password } = req.body;
-    const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const msg=`Your verification code is: ${verificationCode}`
-    console.log('Email received for sign-in:', email);
+  const { email, password } = req.body;
+  const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+  const msg=`Your verification code is: ${verificationCode}`
+  console.log("Email received for sign-in:", email);
 
-    try {
-        const user = await User.findOne({ email });
-        console.log('User found:', user);
+  try {
+    const user = await User.findOne({ email });
+    console.log("User found:", user);
 
         if (!user) {
             return res.status(404).json("email not found");
@@ -64,18 +64,17 @@ exports.signInUser = async (req, res) => {
         token: token,
         verificationCode: verificationCode
 
+
     });
     return;
-
-    } catch (error) {
-        console.log("Error in sign-in:", error);
-        res.status(500).json({ message: "Error in server" });
-    }
+  } catch (error) {
+    console.log("Error in sign-in:", error);
+    res.status(500).json({ message: "Error in server" });
+  }
 };
 
-
 exports.logout = (req, res) => {
-    res.status(200).json({ message: 'Logout successful' });
+  res.status(200).json({ message: "Logout successful" });
 };
 exports.verify = async (req, res) => {
 

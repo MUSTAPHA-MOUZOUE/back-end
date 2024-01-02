@@ -3,7 +3,8 @@ const router = express.Router();
 const orderController = require("../controllers/orderControllers");
 const { auth,isAdmin,isModerator } = require("../middlewares/Authmiddlewares");
 
-router.post("/", orderController.createOrder);
+router.post("/", orderController.createCashOrderWithOffer);
+router.post("/cart", orderController.checkoutSession);
 
 router.get("/",auth,isModerator, orderController.getOrders);
 
