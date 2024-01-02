@@ -73,12 +73,8 @@ const UserSchema = new Schema(
         type:String,
         required:false
     },
-  role: {
+    verificationCode: { type: String }, 
 
-            type: String,
-            enum: ["user", "admin","moderator"],
-            default: "user"
-          }
         
 },{ timestamp: true });
  
