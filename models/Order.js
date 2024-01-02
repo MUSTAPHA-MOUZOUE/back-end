@@ -28,7 +28,7 @@ const OrderSchema = new Schema(
     },
     date: {
       type: Date,
-      required: true,
+      // required: true,
     },
     totalPrice: {
       type: Number,
@@ -36,8 +36,8 @@ const OrderSchema = new Schema(
     },
     paymentMethod: {
       type: String,
-      enum: PaymentMethods,
-      required: true,
+      enum: ["card", "cash"],
+      default: "cash",
     },
     customer: {
       type: String,
@@ -47,14 +47,14 @@ const OrderSchema = new Schema(
     },
     shippingAddress: {
       type: shippingAddressSchema,
-      required: true,
+      // required: true,
     },
     trackingNumber: {
       type: String,
     },
     billingAddress: {
       type: billingAddressSchema,
-      required: true,
+      // required: true,
     },
     orderNotes: {
       type: String,
