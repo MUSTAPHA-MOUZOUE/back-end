@@ -1,4 +1,4 @@
-const { registerUser, signInUser, logout } = require("../controllers/authcontrollers");
+const { registerUser, signInUser, logout,v } = require("../controllers/authcontrollers");
 const { auth} = require("../middlewares/AuthMiddlewares"); // Updated import
 
 const express = require("express");
@@ -9,7 +9,10 @@ router.post('/sign-up', registerUser);
 
 // Signin route
 router.post('/sign-in', signInUser);
+router.post('/verify', verify);
 
 // Logout route with authentication middleware
 router.post('/logout', auth, logout);
+
+
 module.exports = router;

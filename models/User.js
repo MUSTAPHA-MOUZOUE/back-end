@@ -30,8 +30,8 @@ const UserSchema = new Schema({
     },
     wishlist:[{
       items: [{
-        name: { type: String, required: true },
-        price: { type: Number, required: true },
+        name: { type: String,  },
+        price: { type: Number,  },
       }]
     }],
     resetPasswordExpire:{
@@ -45,7 +45,7 @@ const UserSchema = new Schema({
 
             type: String,
             enum: ["user", "admin","moderator"],
-            default: ["user"]
+            default: "user"
           }
         
 },{ timestamp: true });
