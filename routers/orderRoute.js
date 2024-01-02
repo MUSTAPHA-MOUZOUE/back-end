@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const orderController = require("../controllers/orderControllers");
 
-router.post("/", orderController.createOrder);
+router.post("/", orderController.createCashOrderWithOffer);
+router.post("/cart", orderController.checkoutSession);
 
 router.get("/", orderController.getOrders);
 
