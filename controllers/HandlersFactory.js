@@ -12,6 +12,7 @@ exports.deleteOne = (Model) =>
     }
     res.status(204).send();
   });
+  
 
 
   exports.updateOne = (Model) =>
