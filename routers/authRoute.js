@@ -1,5 +1,5 @@
 const { registerUser, signInUser, logout,verify} = require("../controllers/authcontrollers");
-const { auth} = require("../middlewares/AuthMiddlewares"); // Updated import
+const { auth} = require("../middlewares/Authmiddlewares"); // Updated import
 
 const express = require("express");
 const router = express.Router();

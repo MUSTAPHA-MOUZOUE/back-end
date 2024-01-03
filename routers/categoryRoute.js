@@ -5,7 +5,7 @@ const { auth,isAdmin,isModerator } = require("../middlewares/Authmiddlewares");
 
 router.post("/",auth,isAdmin,isModerator, categoryController.CreateCategories);
 
-router.get("/",auth,isAdmin,isModerator, categoryController.getCategories);
+router.get("/",auth,isAdmin, categoryController.getCategories);
 
 router.get("/:id",auth,isAdmin,isModerator, categoryController.getCategoryById);
 

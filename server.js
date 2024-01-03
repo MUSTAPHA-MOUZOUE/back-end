@@ -10,13 +10,11 @@ const notificationRoute = require("./routers/notificationRoute");
 const UserRoute = require("./routers/UserRoute");
 const TransactionRoute = require("./routers/TransactionRoute");
 const ShippingRoute = require("./routers/ShippingRoute");
-<<<<<<< HEAD
+
 const authRoute=require("./routers/authRoute")
-=======
+
 const productRoute = require("./routers/productRoute");
-const authRoutes = require("./routers/authRoute");
->>>>>>> c6c3abc54bfa05b53b346d138bef1c98bdd3fefc
-// Connect with db
+
 dbConnection();
 
 // express app
@@ -37,12 +35,9 @@ app.use("/api/v1/user",UserRoute)
 app.use("/api/v1/shipping",ShippingRoute )
 //Routes Transaction
 app.use("/api/v1/transa",TransactionRoute)
-<<<<<<< HEAD
-app.use("/api",authRoute)
-=======
-app.use("/api/v1/auth", authRoutes);
 
->>>>>>> c6c3abc54bfa05b53b346d138bef1c98bdd3fefc
+app.use("/api/v1/auth", authRoute);
+
 const PORT = process.env.PORT || 8000;
  app.listen(PORT, () => {
   console.log(`App running running on port ${PORT}`);
